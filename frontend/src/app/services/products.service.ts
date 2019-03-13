@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {Constants} from '../constants';
 
 @Injectable({providedIn: 'root'})
 export class ProductsService {
-  public API = '//localhost:8080/api';
 
   constructor(private http: HttpClient) {
   }
 
   getAllProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.API + '/products/get-all', {});
+    return this.http.get<any[]>(Constants.API_HOLY_REPOSITORY + '/get-all-products', {});
   }
 }

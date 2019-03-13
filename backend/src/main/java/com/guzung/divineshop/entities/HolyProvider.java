@@ -6,8 +6,8 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "holy_products")
-public class HolyProduct {
+@Table(name = "holy_providers")
+public class HolyProvider {
 
     @Id
     @Column(name = "id")
@@ -23,10 +23,6 @@ public class HolyProduct {
     private String description;
 
     @Basic
-    @Column(name = "price")
-    private Double price;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "manufacturer_id")
-    private HolyProvider holyProvider;
+    @Column(name = "address")
+    private String address;
 }

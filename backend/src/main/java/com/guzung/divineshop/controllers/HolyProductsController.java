@@ -6,23 +6,26 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@CrossOrigin
 @RestController
-//@RequestMapping("/api/products")
 public class HolyProductsController {
 
     @Autowired
     private HolyProductsRepository holyProductsRepository;
 
-    //    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(value = "/api/products/get-all", method = RequestMethod.GET)
+    @CrossOrigin
+    @RequestMapping(value = "/get-all-products", method = RequestMethod.GET)
     public ResponseEntity<List<HolyProduct>> getAllProducts() {
+        List<HolyProduct> products = holyProductsRepository.findAll();
         return new ResponseEntity<>(holyProductsRepository.findAll(), HttpStatus.OK);
     }
 }

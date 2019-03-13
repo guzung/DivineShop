@@ -20,6 +20,7 @@ export class DivineHomeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscriptions.push(this.productsService.getAllProducts().subscribe(divineProducts => {
       this.products = divineProducts;
+      console.log(this.products);
     }));
   }
 
