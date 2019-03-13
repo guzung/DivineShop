@@ -1,0 +1,27 @@
+<div class="login-bg">
+  <div class="login-body">
+    <h6 class="text-center"><i class="fas fa-church text-warning fa-2x"></i></h6>
+    <h3 class="text-center white-text"> Ridicarea la cer</h3>
+    <div class="login-content my-3">
+        <div class="input-group flex-nowrap my-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-sign-in-alt"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="Numele păcătosului" aria-label="Username" aria-describedby="addon-wrapping"
+                 [(ngModel)]="model.username" #username="ngModel" required>
+        </div>
+        <div class="input-group flex-nowrap my-2">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+          </div>
+          <input type="password" class="form-control" placeholder="Mantra personală" aria-label="Password" aria-describedby="addon-wrapping"
+                 [(ngModel)]="model.password" #password="ngModel" required>
+        </div>
+      <div *ngIf="submitted && !model.password.valid" class="text-center text-danger">Mantra nu-i credibilă</div>
+      <div *ngIf="submitted && !model.username.valid" class="text-center text-danger">Porțile raiului sunt închise</div>
+    </div>
+    <div class="text-center mt-2">
+      <button class="btn btn-outline-warning" (click)="login()">Încearcă</button>
+    </div>
+  </div>
+</div>
