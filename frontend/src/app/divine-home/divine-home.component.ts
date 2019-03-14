@@ -10,7 +10,6 @@ import {Subscription} from 'rxjs';
 export class DivineHomeComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
-
   private products: any[] = [];
 
   constructor(private productsService: ProductsService) {
@@ -21,8 +20,15 @@ export class DivineHomeComponent implements OnInit, OnDestroy {
     this.subscriptions.push(this.productsService.getAllProducts().subscribe(divineProducts => {
       this.products = divineProducts;
       console.log(this.products);
+      for (let i = 0; i < 20; i++) {
+        this.products.push({});
+      }
     }));
+
+
   }
+
+  //todo: https://stackoverflow.com/a/47515273/9148387
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s.unsubscribe());

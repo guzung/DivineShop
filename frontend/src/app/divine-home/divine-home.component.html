@@ -1,12 +1,60 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to Divine Home!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Produse sfinte: </h2>
-<ul>
-  <div *ngFor="let p of products">
-    <div>{{p.name}} {{p.price}}</div>
+<div class="body">
+  <div class="header">
+    <div class="title">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="offset-8"></div>
+          <div class="col-2 text-right">
+            <h1 class="text-warning">Magazinul Bisericesc Sfântul Elan</h1>
+          </div>
+          <div class="col-2 text-left">
+            <img src="../../assets/img/sfElan.png" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark margin-menu">
+    <a class="navbar-brand" href="#">Navbar w/ text</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+      Navbar text with an inline element
+    </span>
+    </div>
+  </nav>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-4 mb-3" *ngFor="let p of products">
+        <div class="card">
+          <img class="card-img-top" src="https://images.pexels.com/photos/158136/greece-holidays-holiday-summer-158136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <hr>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="my-2">
+              <div class="small">Producator: <span class="font-weight-bold"> Lorem ipsum dolor sit amet.</span></div>
+              <small class="text-muted">Some quick example text to build on the card title and make up the bulk of the card's content.</small>
+            </div>
+            <hr>
+            <button class="btn btn-success btn-block">Cumpara bleati <i class="fas fa-shopping-cart fa-lg ml-2"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

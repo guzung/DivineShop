@@ -22,7 +22,7 @@ import {CommonModule} from '@angular/common';
     CommonModule,
     ToastrModule.forRoot({
       timeOut: 10000,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,

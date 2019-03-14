@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Lilita+One');
+
+body {
+  background: url(https://i.imgur.com/zAnLt4m.jpg) no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height : 100vh;
+}
+
+.col-m5 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}

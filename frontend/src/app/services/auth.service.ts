@@ -9,19 +9,17 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-
   login(user: string, pass: string): Observable<any> {
     const method = '/login';
-
-    return this.http.post<Observable<boolean>>(Constants.API_HOLY_REPOSITORY + method, {
-      username: user,
-      password: pass
-    });
+    return this.connectToBackend(user, pass, method);
   }
 
   signin(user: string, pass: string): Observable<any> {
     const method = '/signin';
+    return this.connectToBackend(user, pass, method);
+  }
 
+  private connectToBackend(user: string, pass: string, method: string): Observable<any> {
     return this.http.post<Observable<boolean>>(Constants.API_HOLY_REPOSITORY + method, {
       username: user,
       password: pass
