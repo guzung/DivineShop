@@ -9,13 +9,18 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  getAllProducts(): Observable<any[]> {
-    return this.http.get<any[]>(Constants.API_HOLY_REPOSITORY + '/products/get-all', {});
-  }
-
 
   login(user: string, pass: string): Observable<any> {
     const method = '/login';
+
+    return this.http.post<Observable<boolean>>(Constants.API_HOLY_REPOSITORY + method, {
+      username: user,
+      password: pass
+    });
+  }
+
+  signin(user: string, pass: string): Observable<any> {
+    const method = '/signin';
 
     return this.http.post<Observable<boolean>>(Constants.API_HOLY_REPOSITORY + method, {
       username: user,

@@ -15,14 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-@CrossOrigin
 @RestController
 public class HolyProductsController {
 
     @Autowired
     private HolyProductsRepository holyProductsRepository;
 
-    @CrossOrigin
     @RequestMapping(value = "/get-all-products", method = RequestMethod.GET)
     public ResponseEntity<List<HolyProduct>> getAllProducts() {
         List<HolyProduct> products = holyProductsRepository.findAll();

@@ -19,14 +19,4 @@ public class SinfulUser {
     @Basic
     @Column(name = "password")
     private String password;
-
-    @Transient
-    private String passwordConfirm;
-
-    @Basic
-    @Column(name = "enabled")
-    private Boolean enabled;
-
-//    @ManyToMany
-//    private Set<Role> roles;
 }
