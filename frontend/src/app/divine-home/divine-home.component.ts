@@ -11,27 +11,49 @@ export class DivineHomeComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription[] = [];
   private products: any[] = [];
+  private randomProducts: any[] = [];
+  private selectedCategoryId = -1;
+  private categories: any[] = [];
 
   constructor(private productsService: ProductsService) {
 
   }
 
   ngOnInit() {
-    this.subscriptions.push(this.productsService.getAllProducts().subscribe(divineProducts => {
-      this.products = divineProducts;
-      console.log(this.products);
-      for (let i = 0; i < 20; i++) {
-        this.products.push({});
-      }
+    this.categories.push({id: 4});
+    this.subscriptions.push(this.productsService.getAllCategories().subscribe(categories => {
+      this.categories = categories;
+      console.log(this.categories);
+
+      this.categories.forEach(c => {
+        if (c.products.length > 0) {
+          this.randomProducts.push(...c.products.slice(0, 3));
+        }
+      });
+
+      this.shuffle(this.randomProducts);
+      this.products = this.randomProducts;
     }));
-
-
   }
 
-  //todo: https://stackoverflow.com/a/47515273/9148387
+  selectCategory(c) {
+    this.selectedCategoryId = c.id;
+    this.products = c.products;
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(s => s.unsubscribe());
   }
 
+  shuffle(array: any[]) {
+
+    for (let i = array.length - 1; i >= 0; i--) {
+
+      const randomIndex = Math.floor(Math.random() * (i));
+      const itemAtIndex = array[randomIndex];
+
+      array[randomIndex] = array[i];
+      array[i] = itemAtIndex;
+    }
+  }
 }
