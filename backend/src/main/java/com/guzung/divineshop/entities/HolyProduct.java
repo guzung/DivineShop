@@ -30,6 +30,9 @@ public class HolyProduct {
     @Column(name = "price")
     private String price;
 
+    @Transient
+    private Boolean showImage = false;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manufacturer_id")
     private HolyProvider holyProvider;
