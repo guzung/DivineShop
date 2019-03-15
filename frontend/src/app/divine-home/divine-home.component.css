@@ -108,6 +108,7 @@ body {
 }
 
 .card img {
+  min-height : 220px;
   max-height : 220px;
   object-fit: cover;
 }
