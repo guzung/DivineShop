@@ -1,0 +1,140 @@
+body {
+  background: url(https://i.imgur.com/zAnLt4m.jpg) no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height : 100vh;
+}
+/*.body {*/
+/*  background: url(https://i.imgur.com/zAnLt4m.jpg) no-repeat;*/
+/*  background-position: center;*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: cover;*/
+/*  height : 100vh;*/
+/*}*/
+
+.content-header {
+  min-height: 250px;
+  position: relative;
+}
+
+.zero {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header {
+  min-height : 150px;
+  position : relative;
+  background : rgba(0, 0, 0, .35);
+}
+.card-img-top {
+  max-height : 300px;
+}
+
+.card-body {
+  background : #fff;
+  margin-top: -85px;
+}
+
+.header .title {
+  font-family: 'Lilita One', cursive;
+}
+
+.header .title h1 {
+  font-size : 3em;
+}
+
+.header .title img {
+  width: 235px;
+}
+
+.card {
+  margin: 5px;
+}
+
+.images {
+  height:250px;
+}
+
+.images img{
+  max-height: 160px;
+}
+
+.white-text {
+  color: #fafafa ;
+}
+
+.nav-item a{
+  color: #fff;
+  transition: 0.5s;
+  font-size : 1.25rem;
+  cursor : pointer;
+}
+
+.nav-item a:hover {
+  transition: 0.5s;
+}
+
+.nav-item-active {
+  color: #ffff00 !important;
+}
+
+.elon {
+  position : fixed;
+  bottom : 0;
+  right : 0;
+}
+
+.elon img {
+  width : 260px;
+}
+
+.card-body {
+  margin-top: -50px;
+}
+
+.card {
+  min-height : 500px;
+}
+
+.card-footers {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width : 100%;
+  padding: 10px;
+}
+
+.card img {
+  min-height : 220px;
+  max-height : 220px;
+  object-fit: cover;
+}
+
+.nav-item a:hover {
+  color: #ffd740;
+  transition: 0.5s;
+}
+
+.col-width {
+  width: 320px;
+}
+
+.bg-dark {
+  background : rgba(0, 0, 0, .75) !important;
+}
+
+.card-body {
+  paddign: 0.55rem !important;
+}
+
+.container-fluid-modified {
+  margin-left: 200px;
+  margin-right : 200px;
+}
+
+.card {
+  border: 1px solid rgba(0, 0, 0, 0);
+}

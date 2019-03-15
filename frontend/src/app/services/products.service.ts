@@ -12,4 +12,8 @@ export class ProductsService {
   getAllProducts(): Observable<any[]> {
     return this.http.get<any[]>(Constants.API_HOLY_REPOSITORY + '/get-all-products', {});
   }
+
+  getAllCategories(): Observable<any[]> {
+    return this.http.get<any[]>(Constants.API_HOLY_REPOSITORY + '/get-categories-with-products', {});
+  }
 }

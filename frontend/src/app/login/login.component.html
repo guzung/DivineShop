@@ -17,11 +17,20 @@
           <input type="password" class="form-control" placeholder="Mantra personală" aria-label="Password" aria-describedby="addon-wrapping"
                  [(ngModel)]="model.password" #password="ngModel" required>
         </div>
-      <div *ngIf="submitted && !model.password.valid" class="text-center text-danger">Mantra nu-i credibilă</div>
-      <div *ngIf="submitted && !model.username.valid" class="text-center text-danger">Porțile raiului sunt închise</div>
+      <div class="input-group flex-nowrap my-2" *ngIf="!canLogIn">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        <input type="password" class="form-control" placeholder="Repetați mantra" aria-label="Password" aria-describedby="addon-wrapping"
+               [(ngModel)]="model.passwordConfirm" #passwordConfirm="ngModel" required>
+      </div>
+      <div *ngIf="submitted && !model.password.valid && canLogIn" class="text-center text-danger">Mantra ta nu-i credibilă</div>
+      <div *ngIf="submitted && !model.username.valid && canLogIn" class="text-center text-danger">Pentru tine porțile raiului sunt închise</div>
     </div>
+
     <div class="text-center mt-2">
-      <button class="btn btn-outline-warning" (click)="login()">Încearcă</button>
+      <button class="btn mr-2" [ngClass]="canLogIn ? 'btn-outline-warning':'btn-outline-light'" (click)="login()">Logare</button>
+      <button class="btn" [ngClass]="canLogIn ? 'btn-outline-light':'btn-outline-warning'" (click)="signIn()">Înregistrare</button>
     </div>
   </div>
 </div>
