@@ -23,8 +23,12 @@ public class HolyProduct {
     private String description;
 
     @Basic
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Basic
     @Column(name = "price")
-    private Double price;
+    private String price;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "manufacturer_id")
