@@ -11,8 +11,7 @@ import {AuthGuard} from './services/auth.guard';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
-import {NgxSpinnerModule} from 'ngx-spinner';
-import {DeferLoadModule} from '@trademe/ng-defer-load';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import {DeferLoadModule} from '@trademe/ng-defer-load';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    DeferLoadModule,
-    NgxSpinnerModule,
+    MatTooltipModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,

@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="offset-8"></div>
           <div class="col-2 text-right">
-            <h1 class="text-warning">Magazinul Bisericesc "Sfântu' Elan"</h1>
+            <h1 class="text-warning">Magazinul Bisericesc Sfântul Elan</h1>
           </div>
           <div class="col-2 text-left">
             <img src="../../assets/img/sfElan.png" alt="" class="img-fluid">
@@ -18,23 +18,17 @@
 
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngFor="let c of categories" (click)="selectCategory(c)">
-          <a class="nav-link" [ngClass]="{'nav-item-active': selectedCategoryId === c.id }">{{c.description}}</a>
+        <li class="nav-item" *ngFor="let c of categories" [ngClass]="{'nav-item-active': selectedCategoryId == c.id }" (click)="selectCategory(c)">
+          <a class="nav-link">{{c.description}}</a>
         </li>
       </ul>
     </div>
   </nav>
   <div class="container mt-3">
-    <div class="row align-item-center">
-      <div class="col-4 mb-3" *ngFor="let p of products" (deferLoad)="p.showImage = true">
+    <div class="row">
+      <div class="col-4 mb-3" *ngFor="let p of products">
         <div class="card">
-
-          <div class="images">
-            <ng-container *ngIf="p.showImage">
-              <img class="card-img-top" [src]="p.imageUrl" width="100%" alt="Obiect Sfânt"/>
-            </ng-container>
-          </div>
-
+          <img class="card-img-top" [src]="p.imageUrl || 'https://images.pexels.com/photos/158136/greece-holidays-holiday-summer-158136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{p.name}}</h5>
             <hr>
@@ -43,9 +37,8 @@
               <div class="small">Producator: <span class="font-weight-bold"> {{p.holyProvider?.name}}</span></div>
               <small class="text-muted">{{p.holyProvider?.description}}</small>
             </div>
-            <div class="card-footers">
-              <button class="btn btn-success btn-block" (click)="buy(p)">{{p.price}} MDL<i class="fas fa-shopping-cart fa-lg ml-2"></i></button>
-            </div>
+            <hr>
+            <button ngbTooltip="What a great tip!" matTooltip="bagă-n coșniță" class="btn btn-success btn-block">{{p.price}} MDL<i class="fas fa-shopping-cart fa-lg ml-2"></i></button>
           </div>
         </div>
       </div>
@@ -53,6 +46,3 @@
   </div>
 </div>
 
-<div class="elon">
-  <img src="https://image.noelshack.com/fichiers/2018/36/5/1536327851-muskjoint.png" alt="">
-</div>
