@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Subscription} from 'rxjs';
 import {AuthService} from '../services/auth.service';
 import {ToastrService} from 'ngx-toastr';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router,
     private http: HttpClient,
     private authService: AuthService,
-    private msg: ToastrService
+    private msg: ToastrService,
+    private load: NgxSpinnerService
   ) {
   }
 
@@ -46,6 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         return;
       }
 
+      this.load.show();
       this.subscriptions.push(this.authService.signin(this.model.username, this.model.password).subscribe(res => {
         this.submitted = true;
         switch (res) {
@@ -64,7 +67,8 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.msg.info('Sistemul a respins înregistrarea deoarece au fost introduse date incorecte', 'Încercați din nou');
             break;
         }
-      }));
+        this.load.hide();
+      }, error1 => this.load.hide()));
     } else {
       this.msg.info('Introduceți ce cere Administratorul Atotsuprem');
     }
@@ -77,6 +81,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     if (this.model.username && this.model.password) {
 
+      this.load.show();
       this.subscriptions.push(this.authService.login(this.model.username, this.model.password).subscribe(response => {
         this.submitted = true;
         switch (response) {
@@ -95,7 +100,9 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.msg.info('Pentru tine porțile raiului sunt închise, trebuie să te intregistrezi', 'Păcătos inexistent');
             break;
         }
-      }));
+
+        this.load.hide();
+      }, error1 => this.load.hide()));
     } else {
       this.msg.info('Introduceți ce cere Administratorul Atotsuprem');
     }
