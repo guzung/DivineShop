@@ -12,6 +12,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DivineHomeComponent
   ],
   imports: [
+    NgxSpinnerModule,
     CommonModule,
     ToastrModule.forRoot({
       timeOut: 10000,
